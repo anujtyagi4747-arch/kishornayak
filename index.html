@@ -2784,5 +2784,749 @@ function quickView(name,price){
 </script>
 
 <!-- ================= END PART 3 ================= -->
+    <!-- ================= PART 4 : MORE PRODUCTS ================= -->
+
+<style>
+
+/* FEATURED STRIP */
+
+.featured-section{
+    padding:50px 0;
+    background:#0a1710;
+    overflow:hidden;
+}
+
+.featured-box{
+    position:relative;
+    overflow:hidden;
+    padding:25px 18px;
+    border-radius:24px;
+    border:1px solid rgba(185,237,112,.12);
+    background:
+    radial-gradient(
+        circle at 90% 20%,
+        rgba(185,237,112,.13),
+        transparent 35%
+    ),
+    #101e16;
+}
+
+.featured-box:before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    right:-80px;
+    bottom:-100px;
+    background:rgba(237,150,62,.08);
+}
+
+.featured-content{
+    position:relative;
+    z-index:2;
+    max-width:650px;
+}
+
+.featured-tag{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:20px;
+    background:rgba(185,237,112,.1);
+    color:#b9ed70;
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:1.3px;
+}
+
+.featured-title{
+    margin-top:11px;
+    font-family:'Playfair Display',serif;
+    font-size:27px;
+    line-height:1.15;
+}
+
+.featured-text{
+    margin-top:9px;
+    color:#8d9b92;
+    font-size:10px;
+    line-height:1.6;
+}
+
+.featured-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:17px;
+    min-height:40px;
+    padding:0 16px;
+    border-radius:11px;
+    background:#b9ed70;
+    color:#07110c;
+    font-size:10px;
+    font-weight:900;
+}
+
+
+/* MORE PRODUCTS */
+
+.more-products{
+    margin-top:48px;
+}
+
+.more-title{
+    font-family:'Playfair Display',serif;
+    font-size:27px;
+}
+
+.more-sub{
+    margin-top:7px;
+    color:#7f8c84;
+    font-size:10px;
+}
+
+
+/* PRODUCT ROW */
+
+.product-row{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    padding:20px 1px 8px;
+    scrollbar-width:none;
+    scroll-snap-type:x mandatory;
+}
+
+.product-row::-webkit-scrollbar{
+    display:none;
+}
+
+.small-product{
+    position:relative;
+    width:185px;
+    flex:0 0 185px;
+    overflow:hidden;
+    scroll-snap-align:start;
+    border-radius:17px;
+    background:#101d16;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.small-image{
+    position:relative;
+    height:160px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.small-image.pink{
+    background:
+    radial-gradient(
+        circle,
+        rgba(224,123,171,.25),
+        transparent 45%
+    ),
+    #21131c;
+}
+
+.small-image.blue{
+    background:
+    radial-gradient(
+        circle,
+        rgba(95,188,216,.25),
+        transparent 45%
+    ),
+    #102025;
+}
+
+.small-image.purple{
+    background:
+    radial-gradient(
+        circle,
+        rgba(163,117,213,.25),
+        transparent 45%
+    ),
+    #1c1425;
+}
+
+.small-image.lemon{
+    background:
+    radial-gradient(
+        circle,
+        rgba(220,202,93,.25),
+        transparent 45%
+    ),
+    #211f12;
+}
+
+
+/* BOTTLE VARIATION */
+
+.small-bottle{
+    width:63px;
+    height:94px;
+    border-radius:12px 12px 17px 17px;
+    background:linear-gradient(
+        90deg,
+        #d15c91,
+        #ef9fc1,
+        #b84478
+    );
+    box-shadow:0 15px 25px rgba(0,0,0,.35);
+    position:relative;
+}
+
+.small-bottle:before{
+    content:"";
+    position:absolute;
+    width:27px;
+    height:14px;
+    top:-11px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:4px 4px 2px 2px;
+    background:#272923;
+}
+
+.small-bottle:after{
+    content:"KN";
+    position:absolute;
+    left:50%;
+    top:36px;
+    transform:translateX(-50%);
+    width:45px;
+    padding:6px 0;
+    text-align:center;
+    background:#f5efdf;
+    color:#60733c;
+    font-size:8px;
+    font-weight:900;
+    border-radius:3px;
+}
+
+
+/* JAR VARIANTS */
+
+.small-jar{
+    width:92px;
+    height:68px;
+    border-radius:12px 12px 18px 18px;
+    background:linear-gradient(
+        90deg,
+        #557f9a,
+        #8dc3dc,
+        #416d86
+    );
+    position:relative;
+    box-shadow:0 15px 25px rgba(0,0,0,.35);
+}
+
+.small-jar:before{
+    content:"";
+    position:absolute;
+    width:98px;
+    height:15px;
+    top:-10px;
+    left:-3px;
+    border-radius:5px;
+    background:#282923;
+}
+
+.small-jar:after{
+    content:"KISHOR";
+    position:absolute;
+    left:50%;
+    top:25px;
+    transform:translateX(-50%);
+    width:62px;
+    padding:5px 0;
+    background:#f5efdf;
+    color:#60733c;
+    text-align:center;
+    font-size:6px;
+    font-weight:900;
+}
+
+
+/* ROUND PRODUCT */
+
+.small-round{
+    width:90px;
+    height:90px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(
+        145deg,
+        #8b5db4,
+        #c397db
+    );
+    box-shadow:0 15px 25px rgba(0,0,0,.35);
+    font-size:34px;
+}
+
+
+/* PRODUCT INFO */
+
+.small-info{
+    padding:12px;
+}
+
+.small-category{
+    color:#7e8b83;
+    font-size:7px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.small-name{
+    margin-top:5px;
+    color:#f4f5ef;
+    font-size:11px;
+    font-weight:800;
+    line-height:1.35;
+}
+
+.small-rating{
+    margin-top:6px;
+    color:#e7c86b;
+    font-size:8px;
+}
+
+.small-bottom{
+    margin-top:10px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.small-price{
+    color:#b9ed70;
+    font-size:13px;
+    font-weight:900;
+}
+
+.small-add{
+    width:30px;
+    height:30px;
+    border:0;
+    border-radius:9px;
+    background:#b9ed70;
+    color:#07110c;
+    font-size:16px;
+    font-weight:900;
+}
+
+
+/* DELIVERY STRIP */
+
+.delivery-strip{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+    margin-top:35px;
+}
+
+.delivery-item{
+    padding:13px;
+    border-radius:13px;
+    background:#0e1b14;
+    border:1px solid rgba(255,255,255,.07);
+}
+
+.delivery-icon{
+    font-size:17px;
+}
+
+.delivery-title{
+    margin-top:6px;
+    font-size:9px;
+    font-weight:800;
+}
+
+.delivery-text{
+    margin-top:3px;
+    color:#77857c;
+    font-size:8px;
+    line-height:1.4;
+}
+
+
+/* DESKTOP */
+
+@media(min-width:700px){
+
+    .featured-section{
+        padding:75px 0;
+    }
+
+    .featured-box{
+        padding:45px;
+    }
+
+    .featured-title{
+        font-size:38px;
+    }
+
+    .small-product{
+        width:220px;
+        flex-basis:220px;
+    }
+
+    .small-image{
+        height:190px;
+    }
+
+    .delivery-strip{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+}
+
+</style>
+
+
+<!-- FEATURED OFFER -->
+
+<section class="featured-section">
+
+<div class="container">
+
+    <div class="featured-box">
+
+        <div class="featured-content">
+
+            <span class="featured-tag">
+                KISHOR NAYAK COLLECTION
+            </span>
+
+            <h2 class="featured-title">
+                Natural choices for
+                your everyday routine.
+            </h2>
+
+            <p class="featured-text">
+                Discover fresh selections,
+                wellness essentials and carefully
+                chosen products in one simple place.
+            </p>
+
+            <a
+                href="#products"
+                class="featured-btn">
+
+                Explore Collection →
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- MORE PRODUCTS -->
+
+    <div class="more-products">
+
+        <h2 class="more-title">
+            More From Our Collection
+        </h2>
+
+        <p class="more-sub">
+            Swipe to explore more products
+        </p>
+
+
+        <div class="product-row">
+
+
+            <!-- PRODUCT 5 -->
+
+            <article class="small-product">
+
+                <div class="small-image pink">
+
+                    <div class="small-bottle"></div>
+
+                </div>
+
+                <div class="small-info">
+
+                    <div class="small-category">
+                        Wellness
+                    </div>
+
+                    <div class="small-name">
+                        Berry Wellness Drink
+                    </div>
+
+                    <div class="small-rating">
+                        ★★★★★
+                    </div>
+
+                    <div class="small-bottom">
+
+                        <div class="small-price">
+                            ₹279
+                        </div>
+
+                        <button
+                            class="small-add"
+                            onclick="addProduct(
+                            'Berry Wellness Drink',
+                            279
+                            )">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 6 -->
+
+            <article class="small-product">
+
+                <div class="small-image blue">
+
+                    <div class="small-jar"></div>
+
+                </div>
+
+                <div class="small-info">
+
+                    <div class="small-category">
+                        Nutrition
+                    </div>
+
+                    <div class="small-name">
+                        Daily Nutrition Jar
+                    </div>
+
+                    <div class="small-rating">
+                        ★★★★★
+                    </div>
+
+                    <div class="small-bottom">
+
+                        <div class="small-price">
+                            ₹349
+                        </div>
+
+                        <button
+                            class="small-add"
+                            onclick="addProduct(
+                            'Daily Nutrition Jar',
+                            349
+                            )">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 7 -->
+
+            <article class="small-product">
+
+                <div class="small-image purple">
+
+                    <div class="small-round">
+                        🫐
+                    </div>
+
+                </div>
+
+                <div class="small-info">
+
+                    <div class="small-category">
+                        Healthy
+                    </div>
+
+                    <div class="small-name">
+                        Natural Berry Pack
+                    </div>
+
+                    <div class="small-rating">
+                        ★★★★★
+                    </div>
+
+                    <div class="small-bottom">
+
+                        <div class="small-price">
+                            ₹299
+                        </div>
+
+                        <button
+                            class="small-add"
+                            onclick="addProduct(
+                            'Natural Berry Pack',
+                            299
+                            )">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 8 -->
+
+            <article class="small-product">
+
+                <div class="small-image lemon">
+
+                    <div class="small-round">
+                        🍋
+                    </div>
+
+                </div>
+
+                <div class="small-info">
+
+                    <div class="small-category">
+                        Fresh
+                    </div>
+
+                    <div class="small-name">
+                        Citrus Fresh Pack
+                    </div>
+
+                    <div class="small-rating">
+                        ★★★★★
+                    </div>
+
+                    <div class="small-bottom">
+
+                        <div class="small-price">
+                            ₹229
+                        </div>
+
+                        <button
+                            class="small-add"
+                            onclick="addProduct(
+                            'Citrus Fresh Pack',
+                            229
+                            )">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- SERVICE STRIP -->
+
+        <div class="delivery-strip">
+
+
+            <div class="delivery-item">
+
+                <div class="delivery-icon">
+                    🌿
+                </div>
+
+                <div class="delivery-title">
+                    Carefully Selected
+                </div>
+
+                <div class="delivery-text">
+                    Products selected with
+                    quality in mind.
+                </div>
+
+            </div>
+
+
+            <div class="delivery-item">
+
+                <div class="delivery-icon">
+                    📦
+                </div>
+
+                <div class="delivery-title">
+                    Easy Ordering
+                </div>
+
+                <div class="delivery-text">
+                    Simple and convenient
+                    ordering experience.
+                </div>
+
+            </div>
+
+
+            <div class="delivery-item">
+
+                <div class="delivery-icon">
+                    💬
+                </div>
+
+                <div class="delivery-title">
+                    Direct Support
+                </div>
+
+                <div class="delivery-text">
+                    Connect with us directly
+                    whenever needed.
+                </div>
+
+            </div>
+
+
+            <div class="delivery-item">
+
+                <div class="delivery-icon">
+                    ✦
+                </div>
+
+                <div class="delivery-title">
+                    Premium Experience
+                </div>
+
+                <div class="delivery-text">
+                    Clean, simple and smooth
+                    shopping experience.
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= END PART 4 ================= -->
 </body>
 </html>

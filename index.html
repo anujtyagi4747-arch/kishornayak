@@ -1150,6 +1150,747 @@ function openCart(){
 }
 
 </script>
+<!-- ================= PART 2 : CATEGORIES ================= -->
 
+<style>
+
+/* CATEGORY SECTION */
+
+.category-section{
+    padding:58px 0 45px;
+    background:#09140e;
+    overflow:hidden;
+}
+
+.section-top{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:22px;
+}
+
+.section-label{
+    color:#b9ed70;
+    font-size:9px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.7px;
+    margin-bottom:7px;
+}
+
+.section-title{
+    font-family:'Playfair Display',serif;
+    font-size:31px;
+    line-height:1.1;
+    color:#f7f0df;
+}
+
+.section-desc{
+    max-width:430px;
+    margin-top:8px;
+    color:#849188;
+    font-size:11px;
+    line-height:1.6;
+}
+
+
+/* SLIDER BUTTONS */
+
+.slider-buttons{
+    display:flex;
+    gap:7px;
+    flex-shrink:0;
+}
+
+.slider-btn{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    background:#111f17;
+    border:1px solid rgba(255,255,255,.09);
+    color:#fff;
+    font-size:16px;
+    transition:.2s;
+}
+
+.slider-btn:active{
+    transform:scale(.9);
+}
+
+.slider-btn:hover{
+    background:#b9ed70;
+    color:#07110c;
+}
+
+
+/* CATEGORY TRACK */
+
+.category-window{
+    overflow:hidden;
+    width:100%;
+}
+
+.category-track{
+    display:flex;
+    gap:12px;
+    width:max-content;
+    will-change:transform;
+    transition:transform .45s ease;
+    touch-action:pan-y;
+}
+
+
+/* CATEGORY CARD */
+
+.category-card{
+    position:relative;
+    width:145px;
+    height:178px;
+    flex-shrink:0;
+    overflow:hidden;
+    border-radius:19px;
+    border:1px solid rgba(255,255,255,.08);
+    background:#111e17;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.category-card:active{
+    transform:scale(.96);
+}
+
+.category-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(185,237,112,.3);
+}
+
+
+/* CATEGORY ART */
+
+.category-art{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.category-art:before{
+    content:"";
+    position:absolute;
+    width:125px;
+    height:125px;
+    border-radius:50%;
+    top:12px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(255,255,255,.08);
+}
+
+.category-art:after{
+    content:"";
+    position:absolute;
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    bottom:25px;
+    right:-25px;
+    background:rgba(255,255,255,.07);
+}
+
+
+/* DIFFERENT COLOUR MOODS */
+
+.cat-one{
+    background:
+    radial-gradient(circle at 50% 30%,#f5b15a55,transparent 34%),
+    linear-gradient(145deg,#3c2413,#171b12);
+}
+
+.cat-two{
+    background:
+    radial-gradient(circle at 50% 30%,#b9ed7050,transparent 34%),
+    linear-gradient(145deg,#17301d,#101b14);
+}
+
+.cat-three{
+    background:
+    radial-gradient(circle at 50% 30%,#ef8c5550,transparent 34%),
+    linear-gradient(145deg,#321d17,#17130f);
+}
+
+.cat-four{
+    background:
+    radial-gradient(circle at 50% 30%,#d8d07c50,transparent 34%),
+    linear-gradient(145deg,#292a17,#171910);
+}
+
+.cat-five{
+    background:
+    radial-gradient(circle at 50% 30%,#e7a3d150,transparent 34%),
+    linear-gradient(145deg,#32172c,#171017);
+}
+
+.cat-six{
+    background:
+    radial-gradient(circle at 50% 30%,#80d8e850,transparent 34%),
+    linear-gradient(145deg,#102d31,#101a1b);
+}
+
+.cat-seven{
+    background:
+    radial-gradient(circle at 50% 30%,#e5c76a50,transparent 34%),
+    linear-gradient(145deg,#302715,#17140d);
+}
+
+.cat-eight{
+    background:
+    radial-gradient(circle at 50% 30%,#a9c8a050,transparent 34%),
+    linear-gradient(145deg,#1d3027,#111913);
+}
+
+
+/* PRODUCT SYMBOL */
+
+.category-symbol{
+    position:absolute;
+    z-index:2;
+    top:27px;
+    left:50%;
+    transform:translateX(-50%);
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.13);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+
+/* CARD INFO */
+
+.category-info{
+    position:absolute;
+    z-index:4;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:14px;
+    background:linear-gradient(
+        transparent,
+        rgba(5,12,8,.96) 45%
+    );
+}
+
+.category-name{
+    font-size:12px;
+    font-weight:800;
+    color:#fff;
+}
+
+.category-count{
+    margin-top:4px;
+    color:#8f9c94;
+    font-size:8px;
+}
+
+
+/* VIEW LINK */
+
+.category-arrow{
+    position:absolute;
+    z-index:5;
+    right:10px;
+    bottom:12px;
+    width:27px;
+    height:27px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#b9ed70;
+    color:#07110c;
+    font-size:13px;
+    font-weight:900;
+}
+
+
+/* MOBILE TWEAK */
+
+@media(max-width:520px){
+
+    .category-section{
+        padding:48px 0 38px;
+    }
+
+    .section-title{
+        font-size:28px;
+    }
+
+    .slider-buttons{
+        display:none;
+    }
+
+    .category-track{
+        gap:10px;
+    }
+
+    .category-card{
+        width:142px;
+        height:172px;
+    }
+
+}
+
+
+/* DESKTOP */
+
+@media(min-width:700px){
+
+    .category-section{
+        padding:75px 0 65px;
+    }
+
+    .category-card{
+        width:190px;
+        height:220px;
+    }
+
+    .category-symbol{
+        width:90px;
+        height:90px;
+        font-size:42px;
+    }
+
+    .category-name{
+        font-size:14px;
+    }
+
+}
+
+</style>
+
+
+<!-- CATEGORY SECTION -->
+
+<section
+    class="category-section"
+    id="categories">
+
+<div class="container">
+
+
+    <div class="section-top">
+
+        <div>
+
+            <div class="section-label">
+                Explore Collection
+            </div>
+
+            <h2 class="section-title">
+                Shop by Category
+            </h2>
+
+            <p class="section-desc">
+                Explore our carefully selected collection
+                and find products that fit your everyday
+                lifestyle.
+            </p>
+
+        </div>
+
+
+        <div class="slider-buttons">
+
+            <button
+                class="slider-btn"
+                onclick="categoryMove(-1)">
+                ←
+            </button>
+
+            <button
+                class="slider-btn"
+                onclick="categoryMove(1)">
+                →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="category-window"
+        id="categoryWindow">
+
+
+        <div
+            class="category-track"
+            id="categoryTrack">
+
+
+            <!-- 1 -->
+
+            <div
+                class="category-card"
+                onclick="categorySelect('Juices')">
+
+                <div class="category-art cat-one"></div>
+
+                <div class="category-symbol">
+                    🍊
+                </div>
+
+                <div class="category-info">
+
+                    <div class="category-name">
+                        Fresh Juices
+                    </div>
+
+                    <div class="category-count">
+                        Explore Collection
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <!-- 2 -->
+
+            <div
+                class="category-card"
+                onclick="categorySelect('Fruits')">
+
+                <div class="category-art cat-two"></div>
+
+                <div class="category-symbol">
+                    🍏
+                </div>
+
+                <div class="category-info">
+
+                    <div class="category-name">
+                        Fresh Fruits
+                    </div>
+
+                    <div class="category-count">
+                        Explore Collection
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <!-- 3 -->
+
+            <div
+                class="category-card"
+                onclick="categorySelect('Wellness')">
+
+                <div class="category-art cat-three"></div>
+
+                <div class="category-symbol">
+                    🥤
+                </div>
+
+                <div class="category-info">
+
+                    <div class="category-name">
+                        Wellness Drinks
+                    </div>
+
+                    <div class="category-count">
+                        Explore Collection
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <!-- 4 -->
+
+            <div
+                class="category-card"
+                onclick="categorySelect('Nutrition')">
+
+                <div class="category-art cat-four"></div>
+
+                <div class="category-symbol">
+                    🌾
+                </div>
+
+                <div class="category-info">
+
+                    <div class="category-name">
+                        Nutrition
+                    </div>
+
+                    <div class="category-count">
+                        Explore Collection
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <!-- 5 -->
+
+            <div
+                class="category-card"
+                onclick="categorySelect('Healthy')">
+
+                <div class="category-art cat-five"></div>
+
+                <div class="category-symbol">
+                    🍓
+                </div>
+
+                <div class="category-info">
+
+                    <div class="category-name">
+                        Healthy Picks
+                    </div>
+
+                    <div class="category-count">
+                        Explore Collection
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <!-- 6 -->
+
+            <div
+                class="category-card"
+                onclick="categorySelect('Natural')">
+
+                <div class="category-art cat-six"></div>
+
+                <div class="category-symbol">
+                    🥝
+                </div>
+
+                <div class="category-info">
+
+                    <div class="category-name">
+                        Natural Goodness
+                    </div>
+
+                    <div class="category-count">
+                        Explore Collection
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <!-- 7 -->
+
+            <div
+                class="category-card"
+                onclick="categorySelect('Daily')">
+
+                <div class="category-art cat-seven"></div>
+
+                <div class="category-symbol">
+                    🍯
+                </div>
+
+                <div class="category-info">
+
+                    <div class="category-name">
+                        Daily Essentials
+                    </div>
+
+                    <div class="category-count">
+                        Explore Collection
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    →
+                </div>
+
+            </div>
+
+
+            <!-- 8 -->
+
+            <div
+                class="category-card"
+                onclick="categorySelect('Special')">
+
+                <div class="category-art cat-eight"></div>
+
+                <div class="category-symbol">
+                    ✦
+                </div>
+
+                <div class="category-info">
+
+                    <div class="category-name">
+                        Special Collection
+                    </div>
+
+                    <div class="category-count">
+                        Explore Collection
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    →
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* CATEGORY SLIDER */
+
+let categoryPosition = 0;
+
+const categoryTrack =
+document.getElementById("categoryTrack");
+
+function categoryMove(direction){
+
+    const cards =
+    document.querySelectorAll(".category-card");
+
+    if(!cards.length) return;
+
+    const cardWidth =
+    cards[0].offsetWidth + 12;
+
+    const visible =
+    Math.floor(
+        document.getElementById("categoryWindow")
+        .offsetWidth / cardWidth
+    );
+
+    const maxPosition =
+    Math.max(0,cards.length-visible);
+
+    categoryPosition += direction;
+
+    if(categoryPosition < 0){
+        categoryPosition = maxPosition;
+    }
+
+    if(categoryPosition > maxPosition){
+        categoryPosition = 0;
+    }
+
+    categoryTrack.style.transform =
+    "translateX(-"+
+    (categoryPosition*cardWidth)+
+    "px)";
+}
+
+
+/* CATEGORY AUTO RUN */
+
+let categoryAuto =
+setInterval(function(){
+
+    categoryMove(1);
+
+},3500);
+
+
+/* PAUSE WHEN TOUCHING */
+
+const categoryWindow =
+document.getElementById("categoryWindow");
+
+categoryWindow.addEventListener(
+    "touchstart",
+    function(){
+        clearInterval(categoryAuto);
+    },
+    {passive:true}
+);
+
+categoryWindow.addEventListener(
+    "touchend",
+    function(){
+
+        categoryAuto =
+        setInterval(function(){
+            categoryMove(1);
+        },3500);
+
+    },
+    {passive:true}
+);
+
+
+/* CATEGORY CLICK */
+
+function categorySelect(name){
+
+    const productSection =
+    document.getElementById("products");
+
+    if(productSection){
+
+        productSection.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+</script>
+
+<!-- ================= END PART 2 ================= -->
 </body>
 </html>

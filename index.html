@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Kishor Nayak | Wellness & Natural Products</title>
+
+<meta name="description"
+content="Kishor Nayak - Natural wellness, juices, fruits and everyday health products.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:#07100c;
+    color:#f7faf5;
+    font-family:'DM Sans',sans-serif;
+    overflow-x:hidden;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    border:0;
+    outline:0;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* =====================================================
+   MAIN COLORS
+===================================================== */
+
+:root{
+
+    --bg:#07100c;
+    --bg2:#0b1711;
+    --card:#101e16;
+    --card2:#14251b;
+
+    --green:#a8e85d;
+    --green2:#c8f58a;
+
+    --cream:#f8f1df;
+    --orange:#ef9b43;
+    --gold:#e9c66c;
+
+    --white:#ffffff;
+    --muted:#9aa89f;
+
+    --border:rgba(255,255,255,.09);
+
+    --shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+    width:5px;
+}
+
+::-webkit-scrollbar-track{
+    background:#07100c;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#57753d;
+    border-radius:20px;
+}
+
+/* =====================================================
+   COMMON
+===================================================== */
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+section{
+    position:relative;
+}
+
+.section-space{
+    padding:50px 0;
+}
+
+/* =====================================================
+   ANNOUNCEMENT BAR
+===================================================== */
+
+.announcement{
+
+    width:100%;
+
+    min-height:34px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:7px 12px;
+
+    background:#bce879;
+
+    color:#091309;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    text-align:center;
+}
+
+.announcement span{
+    margin-left:5px;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:9999;
+
+    width:100%;
+
+    background:rgba(7,16,12,.92);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+
+    height:68px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+}
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    min-width:0;
+}
+
+.brand-logo{
+
+    width:42px;
+
+    height:42px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    background:#f6efe2;
+
+    color:#60703b;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:Georgia,serif;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+.brand-info{
+    min-width:0;
+}
+
+.brand-name{
+
+    font-size:16px;
+
+    line-height:1.1;
+
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.brand-sub{
+
+    margin-top:3px;
+
+    color:#8e9b93;
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.6px;
+
+    white-space:nowrap;
+}
+
+/* =====================================================
+   DESKTOP NAV
+===================================================== */
+
+.desktop-nav{
+
+    display:none;
+
+    align-items:center;
+
+    gap:25px;
+}
+
+.desktop-nav a{
+
+    color:#bdc7c0;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    transition:.2s;
+}
+
+.desktop-nav a:hover{
+    color:var(--green2);
+}
+
+/* =====================================================
+   HEADER ACTIONS
+===================================================== */
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+}
+
+.header-btn{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:12px;
+
+    background:#111d16;
+
+    border:1px solid var(--border);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:17px;
+
+    position:relative;
+
+    transition:.2s;
+}
+
+.header-btn:active{
+    transform:scale(.94);
+}
+
+.cart-number{
+
+    position:absolute;
+
+    top:-5px;
+
+    right:-4px;
+
+    min-width:17px;
+
+    height:17px;
+
+    padding:0 4px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:20px;
+
+    background:var(--green);
+
+    color:#081008;
+
+    font-size:9px;
+
+    font-weight:900;
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.mobile-menu{
+
+    position:fixed;
+
+    top:0;
+
+    right:-100%;
+
+    width:86%;
+
+    max-width:360px;
+
+    height:100vh;
+
+    z-index:10001;
+
+    background:#0a1510;
+
+    border-left:1px solid var(--border);
+
+    box-shadow:-20px 0 60px rgba(0,0,0,.5);
+
+    padding:25px;
+
+    transition:right .3s ease;
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+.menu-head{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding-bottom:22px;
+
+    border-bottom:1px solid var(--border);
+}
+
+.menu-title{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:25px;
+}
+
+.close-menu{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:12px;
+
+    background:#14231b;
+
+    color:white;
+
+    font-size:20px;
+}
+
+.menu-links{
+
+    padding-top:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+}
+
+.menu-links a{
+
+    padding:15px;
+
+    border-radius:13px;
+
+    background:#101e17;
+
+    color:#dce5df;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+.menu-links a:active{
+    background:#1b3022;
+}
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.page-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    z-index:10000;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+}
+
+.page-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    min-height:calc(100vh - 102px);
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:35px 0 45px;
+
+    background:
+
+    radial-gradient(
+        circle at 90% 15%,
+        rgba(168,232,93,.12),
+        transparent 28%
+    ),
+
+    radial-gradient(
+        circle at 0% 90%,
+        rgba(239,155,67,.08),
+        transparent 30%
+    ),
+
+    var(--bg);
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    right:-150px;
+
+    top:180px;
+
+    border-radius:50%;
+
+    background:rgba(168,232,93,.10);
+
+    filter:blur(70px);
+}
+
+.hero-inner{
+
+    position:relative;
+
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:35px;
+}
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
+.hero-content{
+
+    padding-top:10px;
+}
+
+.hero-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:7px 12px;
+
+    border-radius:30px;
+
+    background:rgba(168,232,93,.09);
+
+    border:1px solid rgba(168,232,93,.17);
+
+    color:var(--green2);
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.3px;
+
+    text-transform:uppercase;
+}
+
+.hero-dot{
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:0 0 12px var(--green);
+}
+
+.hero-title{
+
+    margin-top:18px;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:46px;
+
+    line-height:1.03;
+
+    letter-spacing:-1.5px;
+
+    max-width:600px;
+}
+
+.hero-title span{
+    color:var(--green);
+}
+
+.hero-description{
+
+    max-width:520px;
+
+    margin-top:17px;
+
+    color:#a6b1aa;
+
+    font-size:13px;
+
+    line-height:1.75;
+}
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+.hero-buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    flex-wrap:wrap;
+
+    margin-top:23px;
+}
+
+.primary-btn{
+
+    min-height:46px;
+
+    padding:0 17px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:var(--green);
+
+    color:#0a1309;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    box-shadow:0 12px 30px rgba(168,232,93,.12);
+
+    transition:.2s;
+}
+
+.primary-btn:active{
+    transform:scale(.96);
+}
+
+.secondary-btn{
+
+    min-height:46px;
+
+    padding:0 17px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:#111d17;
+
+    border:1px solid var(--border);
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.2s;
+}
+
+.secondary-btn:active{
+    transform:scale(.96);
+}
+
+/* =====================================================
+   HERO PRODUCT VISUAL
+===================================================== */
+
+.hero-visual{
+
+    min-height:330px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:27px;
+
+    border:1px solid var(--border);
+
+    background:
+
+    radial-gradient(
+        circle at 50% 40%,
+        rgba(200,245,138,.14),
+        transparent 32%
+    ),
+
+    linear-gradient(
+        145deg,
+        #14251b,
+        #0a1510
+    );
+
+    box-shadow:var(--shadow);
+}
+
+.hero-glow{
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:rgba(200,245,138,.07);
+
+    filter:blur(25px);
+}
+
+/* =====================================================
+   HERO BOTTLE
+===================================================== */
+
+.hero-bottle{
+
+    position:absolute;
+
+    width:135px;
+
+    height:185px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-43%);
+
+    border-radius:17px 17px 30px 30px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #c76a1f,
+        #ef9c3d 45%,
+        #c35e1d
+    );
+
+    box-shadow:
+
+    20px 25px 45px rgba(0,0,0,.45),
+
+    inset -13px 0 18px rgba(0,0,0,.12);
+}
+
+.hero-bottle::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:60px;
+
+    height:27px;
+
+    left:50%;
+
+    top:-23px;
+
+    transform:translateX(-50%);
+
+    border-radius:7px 7px 3px 3px;
+
+    background:#202521;
+}
+
+.hero-bottle::after{
+
+    content:"WELLNESS";
+
+    position:absolute;
+
+    left:50%;
+
+    top:60px;
+
+    transform:translateX(-50%);
+
+    width:91px;
+
+    padding:10px 5px;
+
+    background:#f5f0df;
+
+    color:#5c713c;
+
+    text-align:center;
+
+    border-radius:5px;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:1.3px;
+}
+
+/* =====================================================
+   FLOATING INFO
+===================================================== */
+
+.floating-card{
+
+    position:absolute;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:9px 11px;
+
+    border-radius:12px;
+
+    background:rgba(12,24,17,.88);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+.floating-card.one{
+
+    left:12px;
+
+    bottom:18px;
+}
+
+.floating-card.two{
+
+    right:12px;
+
+    top:18px;
+}
+
+.float-icon{
+
+    width:28px;
+
+    height:28px;
+
+    border-radius:9px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(168,232,93,.11);
+
+    font-size:13px;
+}
+
+.float-text strong{
+
+    display:block;
+
+    font-size:9px;
+}
+
+.float-text span{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:#87958c;
+
+    font-size:8px;
+}
+
+/* =====================================================
+   TRUST STRIP
+===================================================== */
+
+.trust-strip{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:8px;
+
+    margin-top:20px;
+}
+
+.trust-box{
+
+    min-height:68px;
+
+    padding:10px;
+
+    border-radius:15px;
+
+    background:#0d1a13;
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+}
+
+.trust-icon{
+
+    width:31px;
+
+    height:31px;
+
+    flex-shrink:0;
+
+    border-radius:10px;
+
+    background:rgba(168,232,93,.09);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:14px;
+}
+
+.trust-text strong{
+
+    display:block;
+
+    font-size:9px;
+
+    font-weight:800;
+}
+
+.trust-text span{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:#77847c;
+
+    font-size:8px;
+}
+
+/* =====================================================
+   TABLET / DESKTOP
+===================================================== */
+
+@media(min-width:700px){
+
+    .desktop-nav{
+        display:flex;
+    }
+
+    .mobile-menu-btn{
+        display:none;
+    }
+
+    .hero{
+        padding:65px 0;
+    }
+
+    .hero-inner{
+
+        grid-template-columns:1.05fr .95fr;
+
+        align-items:center;
+
+        gap:50px;
+    }
+
+    .hero-title{
+        font-size:64px;
+    }
+
+    .hero-visual{
+        min-height:480px;
+    }
+
+    .hero-bottle{
+
+        width:180px;
+
+        height:245px;
+    }
+
+    .hero-bottle::after{
+        width:120px;
+        font-size:10px;
+    }
+
+    .trust-strip{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media(max-width:360px){
+
+    .brand-name{
+        font-size:14px;
+    }
+
+    .brand-logo{
+        width:38px;
+        height:38px;
+    }
+
+    .hero-title{
+        font-size:39px;
+    }
+
+    .hero-description{
+        font-size:12px;
+    }
+
+    .hero-visual{
+        min-height:300px;
+    }
+
+    .trust-text strong{
+        font-size:8px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     ANNOUNCEMENT
+===================================================== -->
+
+<div class="announcement">
+    🌿 Natural Wellness Products
+    <span>•</span>
+    Easy Ordering on WhatsApp
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a href="#home" class="brand">
+
+            <div class="brand-logo">
+                〰
+            </div>
+
+            <div class="brand-info">
+
+                <div class="brand-name">
+                    Kishor Nayak
+                </div>
+
+                <div class="brand-sub">
+                    Wellness & Natural Products
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <a href="#products">
+                Products
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button
+                class="header-btn"
+                onclick="openSearch()"
+                aria-label="Search">
+
+                🔍
+
+            </button>
+
+
+            <button
+                class="header-btn"
+                onclick="openCart()"
+                aria-label="Cart">
+
+                🛒
+
+                <span
+                    class="cart-number"
+                    id="cartCount">
+
+                    0
+
+                </span>
+
+            </button>
+
+
+            <button
+                class="header-btn mobile-menu-btn"
+                onclick="openMenu()"
+                aria-label="Menu">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<div
+    class="page-overlay"
+    id="pageOverlay"
+    onclick="closeEverything()">
+</div>
+
+
+<aside
+    class="mobile-menu"
+    id="mobileMenu">
+
+    <div class="menu-head">
+
+        <div class="menu-title">
+            Kishor Nayak
+        </div>
+
+        <button
+            class="close-menu"
+            onclick="closeMenu()">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <div class="menu-links">
+
+        <a
+            href="#home"
+            onclick="closeMenu()">
+
+            🏠 &nbsp; Home
+
+        </a>
+
+        <a
+            href="#categories"
+            onclick="closeMenu()">
+
+            ✦ &nbsp; Categories
+
+        </a>
+
+        <a
+            href="#products"
+            onclick="closeMenu()">
+
+            🛍 &nbsp; Products
+
+        </a>
+
+        <a
+            href="#about"
+            onclick="closeMenu()">
+
+            🌿 &nbsp; About Us
+
+        </a>
+
+        <a
+            href="#contact"
+            onclick="closeMenu()">
+
+            ☎ &nbsp; Contact
+
+        </a>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<section
+    class="hero"
+    id="home">
+
+    <div class="container hero-inner">
+
+
+        <!-- HERO CONTENT -->
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+
+                <span class="hero-dot"></span>
+
+                Fresh • Natural • Wellness
+
+            </div>
+
+
+            <h1 class="hero-title">
+
+                Better Choices.
+                <br>
+
+                <span>Better Living.</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Discover a thoughtfully selected collection
+                of natural juices, wellness products and
+                everyday nutrition — made for a healthier,
+                happier routine.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#products"
+                    class="primary-btn">
+
+                    Explore Products &nbsp; →
+
+                </a>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="orderOnWhatsApp()">
+
+                    💬 Order on WhatsApp
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO PRODUCT -->
+
+        <div class="hero-visual">
+
+            <div class="hero-glow"></div>
+
+
+            <div class="hero-bottle"></div>
+
+
+            <div class="floating-card one">
+
+                <div class="float-icon">
+                    🌿
+                </div>
+
+                <div class="float-text">
+
+                    <strong>
+                        Natural Wellness
+                    </strong>
+
+                    <span>
+                        Selected products
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card two">
+
+                <div class="float-icon">
+                    ✦
+                </div>
+
+                <div class="float-text">
+
+                    <strong>
+                        Premium Collection
+                    </strong>
+
+                    <span>
+                        Shop with ease
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <

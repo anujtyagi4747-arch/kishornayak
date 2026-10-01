@@ -1892,5 +1892,897 @@ function categorySelect(name){
 </script>
 
 <!-- ================= END PART 2 ================= -->
+    <!-- ================= PART 3 : PRODUCTS ================= -->
+
+<style>
+
+/* PRODUCT SECTION */
+
+.products-section{
+    padding:60px 0;
+    background:#07110c;
+    overflow:hidden;
+}
+
+.products-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.products-title-wrap{
+    max-width:600px;
+}
+
+.products-kicker{
+    color:#b9ed70;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+    margin-bottom:7px;
+}
+
+.products-title{
+    font-family:'Playfair Display',serif;
+    font-size:32px;
+    line-height:1.1;
+}
+
+.products-subtitle{
+    color:#87948b;
+    font-size:11px;
+    line-height:1.6;
+    margin-top:9px;
+}
+
+
+/* PRODUCT FILTER */
+
+.product-filter{
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    padding-bottom:5px;
+    margin-bottom:20px;
+    scrollbar-width:none;
+}
+
+.product-filter::-webkit-scrollbar{
+    display:none;
+}
+
+.filter-btn{
+    flex-shrink:0;
+    padding:9px 14px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.08);
+    background:#101d16;
+    color:#89968e;
+    font-size:10px;
+    font-weight:700;
+}
+
+.filter-btn.active{
+    background:#b9ed70;
+    color:#07110c;
+    border-color:#b9ed70;
+}
+
+
+/* PRODUCT GRID */
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+
+/* CARD */
+
+.product-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    background:#101d16;
+    border:1px solid rgba(255,255,255,.08);
+    transition:.25s;
+}
+
+.product-card:active{
+    transform:scale(.98);
+}
+
+.product-card:hover{
+    border-color:rgba(185,237,112,.25);
+    transform:translateY(-3px);
+}
+
+
+/* PRODUCT IMAGE AREA */
+
+.product-image{
+    position:relative;
+    height:185px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.product-image.orange{
+    background:
+    radial-gradient(
+        circle at 50% 40%,
+        rgba(238,150,62,.35),
+        transparent 40%
+    ),
+    #21180f;
+}
+
+.product-image.green{
+    background:
+    radial-gradient(
+        circle at 50% 40%,
+        rgba(185,237,112,.28),
+        transparent 40%
+    ),
+    #101d14;
+}
+
+.product-image.red{
+    background:
+    radial-gradient(
+        circle at 50% 40%,
+        rgba(220,91,59,.28),
+        transparent 40%
+    ),
+    #201310;
+}
+
+.product-image.yellow{
+    background:
+    radial-gradient(
+        circle at 50% 40%,
+        rgba(230,198,110,.28),
+        transparent 40%
+    ),
+    #211d10;
+}
+
+
+/* FAKE PRODUCT VISUAL */
+
+.product-bottle{
+    position:relative;
+    width:76px;
+    height:112px;
+    border-radius:13px 13px 18px 18px;
+    background:linear-gradient(
+        90deg,
+        #a9531d,
+        #ef9c42,
+        #b95d20
+    );
+    box-shadow:
+    15px 18px 30px rgba(0,0,0,.38),
+    inset -8px 0 12px rgba(0,0,0,.14);
+}
+
+.product-bottle:before{
+    content:"";
+    position:absolute;
+    width:32px;
+    height:17px;
+    top:-14px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:5px 5px 2px 2px;
+    background:#282a24;
+}
+
+.product-bottle:after{
+    content:"KN";
+    position:absolute;
+    left:50%;
+    top:40px;
+    transform:translateX(-50%);
+    width:54px;
+    padding:7px 2px;
+    border-radius:4px;
+    text-align:center;
+    background:#f5efdf;
+    color:#61733d;
+    font-size:11px;
+    font-weight:900;
+}
+
+
+/* JAR */
+
+.product-jar{
+    position:relative;
+    width:105px;
+    height:82px;
+    border-radius:13px 13px 22px 22px;
+    background:linear-gradient(
+        90deg,
+        #a96c28,
+        #e1ae55,
+        #9d6020
+    );
+    box-shadow:0 20px 30px rgba(0,0,0,.35);
+}
+
+.product-jar:before{
+    content:"";
+    position:absolute;
+    width:110px;
+    height:18px;
+    left:-2px;
+    top:-12px;
+    border-radius:6px;
+    background:#262820;
+}
+
+.product-jar:after{
+    content:"KISHOR";
+    position:absolute;
+    left:50%;
+    top:31px;
+    transform:translateX(-50%);
+    width:70px;
+    padding:6px 2px;
+    background:#f5efdf;
+    color:#61733d;
+    border-radius:3px;
+    text-align:center;
+    font-size:7px;
+    font-weight:900;
+}
+
+
+/* FRUIT VISUAL */
+
+.fruit-visual{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:-5px;
+    font-size:58px;
+    filter:drop-shadow(0 15px 15px rgba(0,0,0,.3));
+}
+
+
+/* BADGES */
+
+.product-badge{
+    position:absolute;
+    z-index:4;
+    top:10px;
+    left:10px;
+    padding:6px 8px;
+    border-radius:20px;
+    background:#b9ed70;
+    color:#07110c;
+    font-size:8px;
+    font-weight:900;
+}
+
+.wishlist-btn{
+    position:absolute;
+    z-index:5;
+    top:9px;
+    right:9px;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(7,17,12,.75);
+    border:1px solid rgba(255,255,255,.1);
+    color:white;
+    font-size:14px;
+}
+
+.wishlist-btn.liked{
+    background:#b9ed70;
+    color:#07110c;
+}
+
+
+/* PRODUCT DETAILS */
+
+.product-info{
+    padding:13px;
+}
+
+.product-category{
+    color:#7d8b82;
+    font-size:8px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.product-name{
+    margin-top:5px;
+    font-size:13px;
+    font-weight:800;
+    color:#f5f5ed;
+    line-height:1.3;
+}
+
+.product-rating{
+    margin-top:7px;
+    font-size:9px;
+    color:#e7c86b;
+}
+
+.product-rating span{
+    color:#7e8b83;
+    margin-left:3px;
+}
+
+.product-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:7px;
+    margin-top:11px;
+}
+
+.product-price{
+    font-size:15px;
+    font-weight:900;
+    color:#b9ed70;
+}
+
+.product-old{
+    margin-left:3px;
+    color:#66736b;
+    font-size:9px;
+    text-decoration:line-through;
+}
+
+
+/* ADD BUTTON */
+
+.add-btn{
+    width:35px;
+    height:35px;
+    flex-shrink:0;
+    border-radius:10px;
+    background:#b9ed70;
+    color:#07110c;
+    border:0;
+    font-size:18px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.add-btn:active{
+    transform:scale(.88);
+}
+
+
+/* QUICK VIEW */
+
+.quick-btn{
+    width:100%;
+    margin-top:8px;
+    padding:9px;
+    border-radius:9px;
+    border:1px solid rgba(255,255,255,.07);
+    background:#15231b;
+    color:#aebbb3;
+    font-size:9px;
+    font-weight:700;
+}
+
+
+/* DESKTOP */
+
+@media(min-width:700px){
+
+    .products-section{
+        padding:80px 0;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(4,1fr);
+        gap:16px;
+    }
+
+    .product-image{
+        height:235px;
+    }
+
+    .product-name{
+        font-size:14px;
+    }
+
+}
+
+</style>
+
+
+<section
+    class="products-section"
+    id="products">
+
+<div class="container">
+
+
+    <!-- HEADING -->
+
+    <div class="products-head">
+
+        <div class="products-title-wrap">
+
+            <div class="products-kicker">
+                Our Collection
+            </div>
+
+            <h2 class="products-title">
+                Fresh Picks For You
+            </h2>
+
+            <p class="products-subtitle">
+                Explore our featured collection
+                of carefully selected products.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FILTER -->
+
+    <div class="product-filter">
+
+        <button
+            class="filter-btn active"
+            onclick="filterProducts('all',this)">
+            All
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterProducts('juice',this)">
+            Juices
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterProducts('fruit',this)">
+            Fruits
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterProducts('wellness',this)">
+            Wellness
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filterProducts('nutrition',this)">
+            Nutrition
+        </button>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <div class="product-grid"
+         id="productGrid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <article
+            class="product-card"
+            data-category="juice">
+
+            <div class="product-image orange">
+
+                <span class="product-badge">
+                    FEATURED
+                </span>
+
+                <button
+                    class="wishlist-btn"
+                    onclick="toggleWishlist(this)">
+                    ♡
+                </button>
+
+                <div class="product-bottle"></div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Fresh Juice
+                </div>
+
+                <div class="product-name">
+                    Premium Fruit Juice
+                </div>
+
+                <div class="product-rating">
+                    ★★★★★
+                    <span>(4.9)</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        ₹199
+                        <span class="product-old">
+                            ₹249
+                        </span>
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addProduct(
+                        'Premium Fruit Juice',
+                        199
+                        )">
+                        +
+                    </button>
+
+                </div>
+
+                <button
+                    class="quick-btn"
+                    onclick="quickView(
+                    'Premium Fruit Juice',
+                    '₹199'
+                    )">
+                    View Details
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 2 -->
+
+        <article
+            class="product-card"
+            data-category="fruit">
+
+            <div class="product-image green">
+
+                <span class="product-badge">
+                    FRESH
+                </span>
+
+                <button
+                    class="wishlist-btn"
+                    onclick="toggleWishlist(this)">
+                    ♡
+                </button>
+
+                <div class="fruit-visual">
+                    🍏
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Fresh Fruits
+                </div>
+
+                <div class="product-name">
+                    Fresh Green Selection
+                </div>
+
+                <div class="product-rating">
+                    ★★★★★
+                    <span>(4.8)</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        ₹249
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addProduct(
+                        'Fresh Green Selection',
+                        249
+                        )">
+                        +
+                    </button>
+
+                </div>
+
+                <button
+                    class="quick-btn"
+                    onclick="quickView(
+                    'Fresh Green Selection',
+                    '₹249'
+                    )">
+                    View Details
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 3 -->
+
+        <article
+            class="product-card"
+            data-category="wellness">
+
+            <div class="product-image red">
+
+                <span class="product-badge">
+                    POPULAR
+                </span>
+
+                <button
+                    class="wishlist-btn"
+                    onclick="toggleWishlist(this)">
+                    ♡
+                </button>
+
+                <div class="product-bottle"></div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Wellness
+                </div>
+
+                <div class="product-name">
+                    Daily Wellness Drink
+                </div>
+
+                <div class="product-rating">
+                    ★★★★★
+                    <span>(4.7)</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        ₹299
+                        <span class="product-old">
+                            ₹349
+                        </span>
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addProduct(
+                        'Daily Wellness Drink',
+                        299
+                        )">
+                        +
+                    </button>
+
+                </div>
+
+                <button
+                    class="quick-btn"
+                    onclick="quickView(
+                    'Daily Wellness Drink',
+                    '₹299'
+                    )">
+                    View Details
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 4 -->
+
+        <article
+            class="product-card"
+            data-category="nutrition">
+
+            <div class="product-image yellow">
+
+                <span class="product-badge">
+                    PREMIUM
+                </span>
+
+                <button
+                    class="wishlist-btn"
+                    onclick="toggleWishlist(this)">
+                    ♡
+                </button>
+
+                <div class="product-jar"></div>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Nutrition
+                </div>
+
+                <div class="product-name">
+                    Natural Nutrition Pack
+                </div>
+
+                <div class="product-rating">
+                    ★★★★★
+                    <span>(4.9)</span>
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        ₹399
+                    </div>
+
+                    <button
+                        class="add-btn"
+                        onclick="addProduct(
+                        'Natural Nutrition Pack',
+                        399
+                        )">
+                        +
+                    </button>
+
+                </div>
+
+                <button
+                    class="quick-btn"
+                    onclick="quickView(
+                    'Natural Nutrition Pack',
+                    '₹399'
+                    )">
+                    View Details
+                </button>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* PRODUCT FILTER */
+
+function filterProducts(category,button){
+
+    document
+    .querySelectorAll(".filter-btn")
+    .forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+
+    document
+    .querySelectorAll(".product-card")
+    .forEach(function(card){
+
+        if(
+            category==="all" ||
+            card.dataset.category===category
+        ){
+
+            card.style.display="block";
+
+        }else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+}
+
+
+/* WISHLIST */
+
+function toggleWishlist(button){
+
+    button.classList.toggle("liked");
+
+    if(button.classList.contains("liked")){
+
+        button.innerHTML="♥";
+
+    }else{
+
+        button.innerHTML="♡";
+
+    }
+
+}
+
+
+/* ADD PRODUCT */
+
+function addProduct(name,price){
+
+    let count=
+    parseInt(
+        document.getElementById("cartCount").innerText
+    ) || 0;
+
+    count++;
+
+    document.getElementById("cartCount")
+    .innerText=count;
+
+    localStorage.setItem(
+        "kishorCartCount",
+        count
+    );
+
+}
+
+
+/* LOAD CART COUNT */
+
+(function(){
+
+    const saved=
+    localStorage.getItem("kishorCartCount");
+
+    if(saved){
+
+        document.getElementById("cartCount")
+        .innerText=saved;
+
+    }
+
+})();
+
+
+/* QUICK VIEW */
+
+function quickView(name,price){
+
+    alert(
+        name+
+        "\nPrice: "+
+        price+
+        "\n\nDetailed product popup will be connected in Part 6."
+    );
+
+}
+
+</script>
+
+<!-- ================= END PART 3 ================= -->
 </body>
 </html>
